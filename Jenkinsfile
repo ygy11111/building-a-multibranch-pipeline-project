@@ -2,9 +2,20 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      steps {
-        sh 'echo "Hello world!"'
-        echo 'hahaha'
+      parallel {
+        stage('Build') {
+          steps {
+            sh 'echo "Hello world!"'
+            echo 'hahaha'
+          }
+        }
+
+        stage('suibian') {
+          steps {
+            echo 'buzhidao'
+          }
+        }
+
       }
     }
 
